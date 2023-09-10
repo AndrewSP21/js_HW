@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="content"></div>
+
+    <div class="university">
+        <div class="name">ВУЗ: Ahi Evran University</div>
+        <a class="page" href="http://www.ahievran.edu.tr/">http://www.ahievran.edu.tr/</a>
+        <div class="location">
+            <div class="alpha">Код: TR</div>
+            <div class="country">Страна: Turkey</div>
+        </div>
+
+    </div>
+
+    <script src="HW_data.js"> </script>
+    <script>
+        const isStyle = document.querySelector('style');
+        if (isStyle != null) {
+            isStyle.innerText += '.name { font-size: large; font-weight: bold; color: #f00; }';
+            isStyle.innerText += '.location {display: flex; flex-direction: row; justify-content: space-around;}';
+            isStyle.innerText += '.university {border: 1px solid black; width: 250px; height: 150px; margin: 5px; padding: 5px; text-align: center; display: flex; flex-direction: column; justify-content: space-around;}';
+        } else {
+            const head = document.querySelector('head');
+            const newStyle = document.createElement('style');
+            newStyle.innerHTML = '.name { font-size: large; font-weight: bold; color: #f00; } .location {display: flex; flex-direction: row; justify-content: space-around;} .university {border: 1px solid black; width: 250px; height: 150px; margin: 5px; padding: 5px; text-align: center; display: flex; flex-direction: column; justify-content: space-around;}'
+            head.appendChild(newStyle);
+        }
+
+
+        const data = JSON.parse(dataInfo);
+        console.log(data);
+        const content = document.querySelector('.content');
+        data.forEach(({ name, web_pages, country, alpha_two_code }) => {
+            const div = document.createElement('div');
+            div.classList.add('university');
+            content.appendChild(div);
+
+            const universityName = document.createElement('div');
+            universityName.classList.add('name');
+            universityName.textContent = `ВУЗ: ${name}`;
+            div.appendChild(universityName);
+
+            const universityPage = document.createElement('a');
+            universityPage.href = web_pages[0];
+            universityPage.textContent = web_pages[0];
+            universityPage.classList.add('page');
+
+            div.appendChild(universityPage);
+
+            const location = document.createElement('div');
+            location.classList.add('location');
+            div.appendChild(location);
+
+            const alpha = document.createElement('div');
+            alpha.classList.add('alpha');
+            alpha.textContent = `Код: ${alpha_two_code}`;
+
+            location.appendChild(alpha);
+
+            const countryP = document.createElement('div');
+            countryP.classList.add('country');
+            countryP.textContent = `Страна: ${country}`;
+
+            location.appendChild(countryP);
+
+
+        })
+    </script>
+
+</body>
+
+</html>
