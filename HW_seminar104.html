@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="myElement">*</div>
+    <script>
+        //         ""Получение данных о пользователе""
+
+        // Реализуйте функцию getUserData, которая принимает идентификатор пользователя (ID) в качестве аргумента и использует fetch для получения данных о пользователе с заданным ID с удаленного сервера. Функция должна возвращать промис, который разрешается с данными о пользователе в виде объекта. Если пользователь с указанным ID не найден, промис должен быть отклонен с соответствующим сообщением об ошибке.
+
+        // Подсказка, с последовательностью действий:
+        // getUserData использует fetch для получения данных о пользователе с удаленного сервера. Если запрос успешен (с кодом 200), функция извлекает данные из ответа с помощью response.json() и возвращает объект с данными о пользователе. Если запрос неуспешен, функция отклоняет промис с сообщением об ошибке.
+
+        async function getUserData(id) {
+            let response = await fetch('https://jsonplaceholder.typicode.com/users');
+
+            if (response.ok) {
+                let json = await response.json();
+                json.forEach(element => {
+                    if (element.id === id) {
+                        console.log(element);
+                    };
+                });
+            } else {
+                alert("Ошибка HTTP: " + response.status);
+            }
+        };
+
+
+        getUserData(3);
+
+
+
+        // ""Отправка данных на сервер""
+
+        // Реализуйте функцию saveUserData, которая принимает объект с данными о пользователе в качестве аргумента и использует fetch для отправки этих данных на удаленный сервер для сохранения. Функция должна возвращать промис, который разрешается, если данные успешно отправлены, или отклоняется в случае ошибки.
+
+        // *Подсказка *
+        // // Пример использования функции
+        // const user = {
+        // name: 'John Smith',
+        // age: 30,
+        // email: 'john@example.com'
+        // };
+
+        // saveUserData(user)
+        // .then(() => {
+        // console.log('User data saved successfully');
+        // })
+        // .catch(error => {
+        // console.log(error.message);
+        // });
+
+        // saveUserData использует fetch для отправки данных о пользователе на удаленный сервер для сохранения. Она отправляет POST-запрос на URL-адрес /users с указанием типа содержимого application/json и сериализует объект с данными о пользователе в JSON-строку с помощью JSON.stringify(). Если запрос успешен (с кодом 200), функция разрешает промис. Если запрос неуспешен, функция отклоняет промис с сообщени
+        const url = 'https://jsonplaceholder.typicode.com/users'
+
+        const user = {
+            name: 'John Smith',
+            age: 30,
+            email: 'john@example.com'
+        };
+        async function saveUserData(user) {
+            await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(user)
+            })
+                .then(() => { console.log('User data saved successfully') })
+                .catch(error => { console.log(error.message) });
+        };
+        saveUserData(user);
+
+
+        // ""Изменение стиля элемента через заданное время""
+
+        // Напишите функцию changeStyleDelayed, которая принимает идентификатор элемента и время задержки (в миллисекундах) в качестве аргументов. Функция должна изменить стиль элемента через указанное время.
+
+        // // Пример использования функции
+        // changeStyleDelayed('myElement', 2000); // Через 2 секунды изменяет стиль элемента с id 'myElement'"
+        const myElementById = document.querySelector('#myElement');
+
+        // console.log();
+        function changeStyleDelayed(el, delay) {
+            setTimeout(() => changeStyle(el, delay), delay)
+        };
+        function changeStyle(el, delay) {
+            el.style.backgroundColor = 'green';
+            el.style.width = '250px';
+            el.style.height = '150px';
+            el.style.margin = '30px';
+            el.innerHTML += `<br> Прошло не менее ${delay / 1000} секунд`;
+        };
+        changeStyleDelayed(myElementById, 2000);
+    </script>
+</body>
+
+</html>
