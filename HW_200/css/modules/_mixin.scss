@@ -1,0 +1,183 @@
+@mixin logo-text () {
+    color: #292F36;
+    font-family: DM Serif Display;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+}
+
+@mixin nav-text() {
+    color: #292F36;
+    text-align: center;
+    font-family: Jost;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+}
+
+@mixin top-title() {
+    color: #292F36;
+    font-family: DM Serif Display;
+    font-size: 65px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+}
+
+@mixin top-text() {
+    color: #4D5053;
+    font-family: Jost;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0.22px;
+}
+
+@mixin top-button-text() {
+    color: #FFF;
+    text-align: center;
+    font-family: Jost;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 125%;
+    letter-spacing: 0.36px;
+}
+
+@mixin middle-title() {
+    color: #292F36;
+    font-family: DM Serif Display;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+    /* 62.5px */
+    letter-spacing: 1px;
+}
+
+@mixin middle-text() {
+    color: #4D5053;
+    text-align: center;
+    font-family: Jost;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 33px */
+    letter-spacing: 0.22px;
+}
+
+@mixin bid-title() {
+    color: #292F36;
+    font-family: DM Serif Display;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+    /* 31.25px */
+    letter-spacing: 0.5px;
+}
+
+@mixin bid-text() {
+    color: #4D5053;
+    font-family: Jost;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 33px */
+    letter-spacing: 0.22px;
+}
+
+@mixin history-number() {
+    color: #CDA274;
+    font-family: DM Serif Display;
+    font-size: 85px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+    /* 106.25px */
+    letter-spacing: 1.7px;
+}
+
+@mixin history-text() {
+    color: #4D5053;
+    font-family: Jost;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 33px */
+    letter-spacing: 0.22px;
+}
+
+@mixin articleN-text() {
+    color: #292F36;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: DM Serif Display;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+    /* 31.25px */
+    letter-spacing: 0.5px;
+}
+
+@mixin articleN-date() {
+    color: #4D5053;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 24px */
+    letter-spacing: 0.16px;
+    text-transform: capitalize;
+}
+
+@mixin articleN-designName() {
+    color: #4D5053;
+    font-family: Jost;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 24px */
+    letter-spacing: 0.16px;
+    text-transform: capitalize;
+}
+
+@mixin logo-text_H3() {
+    color: #4D5053;
+    font-family: Jost;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    /* 33px */
+    letter-spacing: 0.22px;
+}
+
+@mixin nav4() {
+    color: #292F36;
+    font-family: DM Serif Display;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%;
+    /* 31.25px */
+}
+
+@mixin nav5() {
+    color: #4D5053;
+    font-family: Jost;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 300%;
+    /* 66px */
+    letter-spacing: 0.22px;
+}

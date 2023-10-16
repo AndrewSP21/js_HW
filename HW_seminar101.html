@@ -68,7 +68,7 @@
         // console.log(targetElement);
         const rootElement = document.getElementById('root');
 
-        let found = null;
+        /* let found = null;
         function findElementByClass(el, classT) {
 
             if (el.firstElementChild != null) {
@@ -84,7 +84,19 @@
                 }
             }
 
-        };
+        }; */
+        function findElementByClass(root, className) {
+            if (root.classList && root.classList.contains(className)) {
+                return root;
+            }
+
+            for (const child of root.children) {
+                const found = findElementByClass(child, className);
+                if (found) return found;
+            }
+
+            return null;
+        }
 
         const targetElement = findElementByClass(rootElement, 'my-class');
         console.log(targetElement);

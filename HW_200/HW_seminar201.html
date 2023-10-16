@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <button @click="revert">{{buttonText}}</button>
+        <button @click="addElementList">Добавить</button>
+        <ul>
+            <li v-if="item.isVisible" @click="delElementList(id)" v-for="(item,id) in lists" :key="id">
+                {{item.name}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        //         Часть 2. Задание по Vue
+
+        // 1. Создать кнопку "Перевернуть". При клике на кнопку текст кнопки должен перевернуться и отобразиться в обратном порядке.
+        // 2. Есть список элементов. Пользователь может добавлять новые элементы списка с текстом “Новый элемент списка” нажав на кнопку "Добавить".
+        new Vue({
+            el: '#app',
+            data: {
+                buttonText: 'Перевернуть',
+                lists: [{
+                    name: 'Товар 1',
+                    isVisible: true
+                },
+                {
+                    name: 'Товар 2',
+                    isVisible: true
+                }, {
+                    name: 'Товар 3',
+                    isVisible: true
+                },
+
+                ]
+
+            },
+            methods: {
+                revert() {
+                    this.buttonText = this.buttonText.split('').reverse().join('')
+                },
+                addElementList() {
+                    this.lists.push({ name: 'Новый элемент списка', isVisible: true });
+                },
+                delElementList(id) {
+                    console.log(this.lists[id].name);
+                    this.lists[id].isVisible = false;
+                }
+            },
+        })
+
+
+
+        // 3. *Дополнительное задание: При клике на элемент списка он должен быть удален. (по желанию)
+
+    </script>
+</body>
+
+</html>

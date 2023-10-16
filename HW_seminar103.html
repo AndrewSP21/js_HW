@@ -88,26 +88,49 @@
                 this.totalCoast = 0;
             };
 
-            addProduct(product) {
-                this.products.push(product);
-                this.totalCoast += product.price
+            addProduct(product, quantity = 1) {
+
+                this.totalCoast += product.price * quantity;
+                if (this.products.length === 0) {
+                    this.products.push([product, quantity]);
+                } else {
+                    for (let i = 0; i < this.products.length; i++) {
+                        if (this.products[i][0].name === product.name) {
+                            this.products[i][1] += quantity;
+                            break;
+                        } else {
+                            this.products.push([product, quantity]);
+                            break;
+                        }
+                        // console.log(`В массиве ${this.products[i][0].name}, на входе ${product.name}`);
+                    }
+                }
             };
             getTotalPrice() {
                 return this.totalCoast;
-            }
-        }
+            };
+            getInfo() {
+                for (let i = 0; i < this.products.length; i++) {
+                    console.log(`Продукт: ${this.products[i][0].name}, количество: ${this.products[i][1]}, цена за единицу:  ${this.products[i][0].price}, итого за продукт: ${this.products[i][1] * this.products[i][0].price}.`);
+
+                }
+            };
+
+        };
 
 
         const order = new Order(12345);
 
         const product1 = new Product("Phone", 500);
-        order.addProduct(product1);
+        const product11 = new Product("Phone", 500);
+        order.addProduct(product1, 5);//2500
+        order.addProduct(product11, 2);//1400
 
         const product2 = new Product("Headphones", 100);
-        order.addProduct(product2);
+        order.addProduct(product2, 3);//300
 
-        console.log(order.getTotalPrice()); // Вывод: 600
-
+        console.log(order.getTotalPrice()); // Вывод: 4200
+        order.getInfo();
 
 
     </script>
