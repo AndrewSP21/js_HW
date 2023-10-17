@@ -6,13 +6,13 @@
     padding: 0;
 }
 
-.page {
-    // margin-left: 270px;
-    // margin-right: 297px;
-    // padding-left: 90px;
-    // padding-right: 90px;
+// .page {
+//     // margin-left: 270px;
+//     // margin-right: 297px;
+//     // padding-left: 90px;
+//     // padding-right: 90px;
 
-}
+// }
 
 .arround {
     display: flex;
@@ -68,7 +68,7 @@
 }
 
 .top {
-    background-image: url('/img/main.png');
+    background-image: url('../img/main.png');
     background-size: cover;
     height: 758px;
 
@@ -232,7 +232,14 @@
     }
 }
 
+
+
 .articleN {
+
+    &__backgroundArticle {
+        background-color: #F4F0EC;
+    }
+
     &__text {
         @include articleN-text;
         // padding: 21px;
@@ -252,7 +259,7 @@
         @include articleN-designName;
         position: absolute;
         top: 275px;
-        left: 65px;
+        left: 50px;
         background-color: white;
         border-radius: 8px 8px 8px 0px;
         background: #FFF;
@@ -270,6 +277,7 @@
     flex-direction: column;
     align-items: center;
     position: relative;
+    width: 358px;
 
     &_subcontent {
 
@@ -297,6 +305,8 @@
 .articles {
     display: flex;
     margin-top: 52px;
+    flex-wrap: wrap;
+    width: 1200px;
 }
 
 .footer {
@@ -342,5 +352,98 @@
 
     &__title {
         @include nav4
+    }
+}
+
+.blog {
+    &__top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        background-image: url("../img/BlogImg.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 356px;
+    }
+
+    // &__img {
+    //     position: absolute;
+    // }
+
+    &__topTitle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 503px;
+        padding: 41px 78px;
+        border-radius: 37px 37px 0px 0px;
+        background: #FFF;
+        // position: relative;
+        // left: 50%;
+        // top: 0;
+    }
+
+
+}
+
+.latestPost {
+    margin-top: 200px;
+    width: 1200px;
+
+    &__date {
+        @include articleN-date;
+    }
+
+    &__center {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__body {
+        margin-top: 27px;
+        display: flex;
+    }
+
+    &__text {
+        margin-left: 65px;
+
+        width: 469px;
+    }
+
+    &__subcontainer {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__textSubcontainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__h3 {
+        text-align: left;
+        margin-top: 22px;
+    }
+}
+
+.numerator {
+    display: flex;
+    justify-content: center;
+    margin-top: 51px;
+    margin-bottom: 139px;
+    gap: 20px;
+
+    &__Subcontainer {
+        position: relative;
+    }
+
+    &__span {
+        position: absolute;
+        top: 18px;
+        left: 18px // left: 5px;
     }
 }
