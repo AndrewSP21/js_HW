@@ -10,7 +10,13 @@
 
     <TheFooter />
 
+    <TheHeader />
+    <main class="main">
+      <BlogDetails />
+    </main>
 
+    <TheFooter />
+    <ProductDetails />
   </div>
 </template>
 
@@ -21,6 +27,8 @@ import TheNumerator from './components/Numerator.vue'
 import LatestPost from './components/LatestPost.vue'
 import BlogTop from './components/BlogTop.vue'
 import ArticlesNews from './components/ArticlesNews.vue'
+import ProductDetails from './components/ProductDetails.vue'
+import BlogDetails from './components/BlogDetails.vue'
 
 export default {
   name: 'App',
@@ -30,7 +38,9 @@ export default {
     TheNumerator,
     LatestPost,
     BlogTop,
-    ArticlesNews
+    ArticlesNews,
+    ProductDetails,
+    BlogDetails,
 
   }
 }
