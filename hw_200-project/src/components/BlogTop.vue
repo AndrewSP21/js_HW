@@ -1,9 +1,9 @@
 <template>
     <div>
-        <div class="blog__top">
-            <div class="blog__topTitle">
-                <div class="blog__title middle__title">Articles & News</div>
-                <div class="blog__text middle__text">Home / Blog</div>
+        <div class="blog__top" :style="{ backgroundImage: 'url(' + topImg + ')' }">
+            <div v-if="topTitle" class="blog__topTitle">
+                <div class="blog__title middle__title">{{ title }}</div>
+                <div class="blog__text middle__text">{{ text }}</div>
             </div>
         </div>
     </div>
@@ -12,11 +12,16 @@
 <script>
 
 export default {
-    name: 'BlogTop'
+    name: 'BlogTop',
+    props: ['topImg', 'title', 'text', 'topTitle']
 }
 </script>
 
 <style scoped lang="scss">
-@import "../assets/style.css"
+@import "../assets/style.css";
+
+.blog__top {
+    margin-top: 53px;
+}
 </style>
 

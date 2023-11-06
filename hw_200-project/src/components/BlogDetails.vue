@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="blog__topdetails">
-        </div>
+        <!-- <div class="blog__topdetails">
+        </div> -->
         <div class="blog__details">
             <section class="blog__content">
                 <div v-for='(i, id) in blogArticles2' :key="id" v-html=i.htmlText class="blog__article"></div>
