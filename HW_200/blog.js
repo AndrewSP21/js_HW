@@ -2,35 +2,6 @@ Vue.component('blog-details', {
     data() {
         return {
 
-            /* blogArticles: [
-                {
-                    blog__articleTitle: "<strong>Let’s Get Solution for BuildingConstruction Work</strong>",
-                    blog__articleImg: 'img/BlogArticle1.png',
-                    blog__articleDate: "26 December,2022",
-                    blog__articleCrumbs: "Interior / Home / Decore",
-                    blog__articleText: "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don't look even slightly believable.  Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
-                    blog__articleTextImg: '<img src="img/BlogQuotes.png" alt="" class="blog__articleTextImg">',
-                    tag: "Kitchen"
-                },
-                {
-                    blog__articleTitle: "<strong>Let’s Get Solution for BuildingConstruction Work</strong>",
-                    blog__articleImg: 'img/BlogArticle1.png',
-                    blog__articleDate: "26 December,2022",
-                    blog__articleCrumbs: "Interior / Home / Decore",
-                    blog__articleText: "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don't look even slightly believable.  Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
-                    blog__articleTextImg: '<img src="img/BlogQuotes.png" alt="" class="blog__articleTextImg">',
-                    tag: "Kitchen"
-                },
-                {
-                    blog__articleTitle: "<strong>Let’s Get Solution for BuildingConstruction Work</strong>",
-                    blog__articleImg: 'img/BlogArticle1.png',
-                    blog__articleDate: "26 December,2022",
-                    blog__articleCrumbs: "Interior / Home / Decore",
-                    blog__articleText: "Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don't look even slightly believable.  Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
-                    blog__articleTextImg: '<img src="img/BlogQuotes.png" alt="" class="blog__articleTextImg">',
-                    tag: "Kitchen"
-                }
-            ], */
             blogArticles2: [
                 {
                     htmlText: `
@@ -225,21 +196,7 @@ Vue.component('blog-details', {
 
         }
     },
-    /* template: `<div>
-    <div v-for='i,id in blogArticles' :key="id" class="blog__article">
-    <div class="blog__articleTitle middle__title"><div v-html=i.blog__articleTitle></div>
-    </div>
-    <img v-bind:src="i.blog__articleImg" alt="" class="blog__articleImg">
-    <div class="blog__articleDateCrumbs">
-        <div class="blog__articleDate latestPost__date">{{i.blog__articleDate}}</div>
-        <div class="blog__articleCrumbs latestPost__date">{{i.blog__articleCrumbs}}</div>
-    </div>
-    <div class="blog__articleText">{{i.blog__articleText}}
-    <div v-html=i.blog__articleTextImg></div>
-    </div>
-    </div>
-</div>
-`, */
+    
     template: `<div class="blog__details">
     <section class="blog__content">
         <div v-for='(i,id) in blogArticles2' :key="id" v-html=i.htmlText class="blog__article"></div>
