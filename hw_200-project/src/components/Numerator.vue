@@ -1,26 +1,13 @@
 <template>
   <div>
     <section class="numerator">
-      <div
-        :style="edge.presentation_left"
-        @click="prev_page()"
-        :class="key_arr[0].style_button"
-      >
+      <div :style="edge.presentation_left" @click="prev_page()" :class="key_arr[0].style_button">
         <span class="button__text">&lt;</span>
       </div>
-      <div
-        @click="button_selected(id)"
-        v-for="(item, id) in key_arr"
-        :key="item.id"
-        :class="item.style_button"
-      >
+      <div @click="button_selected(id)" v-for="(item, id) in key_arr" :key="item.id" :class="item.style_button">
         <span class="button__text">{{ item.text }}</span>
       </div>
-      <div
-        :style="edge.presentation_right"
-        @click="next_page()"
-        :class="key_arr[this.key_arr.length - 1].style_button"
-      >
+      <div :style="edge.presentation_right" @click="next_page()" :class="key_arr[this.key_arr.length - 1].style_button">
         <span class="button__text">&gt;</span>
       </div>
     </section>
@@ -49,7 +36,7 @@ export default {
       edge: {
         left: "button__circle",
         right: "button__circle",
-        presentation_left: "display:flex",
+        presentation_left: "display:none",
         presentation_right: "display:flex",
       },
       idxSel: 0,
@@ -58,18 +45,14 @@ export default {
   methods: {
     button_selected(id) {
       for (let i = 0; i < this.key_arr.length; i++) {
-        if (i === id) {
-          this.key_arr[i].style_button = "button__circle button__selected";
-        } else {
-          this.key_arr[i].style_button = "button__circle";
-        }
+        this.key_arr[i].style_button = "button__circle";
       }
-
+      this.key_arr[id].style_button = "button__circle button__selected";
       this.edge.presentation_left = id === 0 ? "display:none" : "display:flex";
       this.edge.presentation_right =
         id === this.key_arr.length - 1 ? "display:none" : "display:flex";
 
-      this.$emit("idxS", id);
+      this.$emit("idxS", [id * 6, (id + 1) * 6]);
     },
     index_selected() {
       const idxSelected = this.key_arr.findIndex(
@@ -80,28 +63,22 @@ export default {
     },
     prev_page() {
       this.idxSel = this.index_selected();
-      this.$emit("idxS", this.idxSel);
+      console.log('Вызов prev_page() номер предыдущей выбранной кнопки: ', this.idxSel);//-------лог
       this.edge.presentation_right = "display:flex";
       if (this.idxSel > 0) {
         this.button_selected(this.idxSel - 1);
-        if (this.idxSel - 1 === 0) {
-          this.edge.presentation_left = "display:none";
-        } else {
-          this.edge.presentation_left = "display:flex";
-        }
+      } else {
+        this.$emit("idxS", [(this.idxSel - 1) * 6, (this.idxSel) * 6]);
       }
     },
     next_page() {
       this.idxSel = this.index_selected();
-      this.$emit("idxS", this.idxSel);
+      console.log('Вызов next_page() номер предыдущей выбранной кнопки: ', this.idxSel);//-------лог
       this.edge.presentation_left = "display:flex";
       if (this.idxSel < this.key_arr.length - 1) {
         this.button_selected(this.idxSel + 1);
-        if (this.idxSel + 2 === this.key_arr.length) {
-          this.edge.presentation_right = "display:none";
-        } else {
-          this.edge.presentation_right = "display:flex";
-        }
+      } else {
+        this.$emit("idxS", [(this.idxSel + 1) * 6, (this.idxSel + 2) * 6]);
       }
     },
   },
@@ -118,6 +95,7 @@ export default {
     width: 51px;
     height: 51px;
     border-radius: 50%;
+
     &:last-child {
       font-size: 28px;
     }
@@ -125,17 +103,21 @@ export default {
     &:first-child {
       font-size: 28px;
     }
+
     &:hover {
       background-color: rgb(199, 195, 195);
       color: white;
     }
   }
+
   &__text {
     margin: auto;
   }
+
   &__selected {
     background-color: #f4f0ec;
     border-color: #f4f0ec;
+
     &:hover {
       background-color: #f4f0ec;
       color: black;
