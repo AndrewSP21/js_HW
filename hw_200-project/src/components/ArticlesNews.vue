@@ -3,7 +3,7 @@
     <section class="articlesNews">
       <div class="arround">
         <div class="articlesNews__title">
-          <div class="articlesNews__h1">Articles & News</div>
+          <router-link class="articlesNews__h1" to="/RBlog">Articles & News</router-link>
           <div class="articlesNews__h3">
             It is a long established fact that a reader will be distracted by
             the of readable content of a page when lookings at its layouts the

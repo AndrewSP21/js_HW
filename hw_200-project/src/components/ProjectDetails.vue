@@ -3,22 +3,6 @@
         <div>
             <div v-for="(item, index) in items" :key="item.id" class=" tt" :class="{ 'slide': currentSlide === index }">
                 <div class="details__top">
-
-                    <!--     <div class="details__title">Minimal Look Bedrooms</div>
-                <div class="details__text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquamsem vitae turpis
-                        dignissim maximus. Aliquam sollicitudin tellumassa, vbel maximus purus posuere in. Dojrices gravida
-                        dignissim. Praesent at nibh in mi fringilla mattis. Phasellus ut dolor odio. Aenean in the ipsum vel
-                        lectus bibendum commodo.</p>
-                    <p>
-                        In nec sem suscipit, convallis leo vitae, lacinia nibh. Cras amet tellus lectus. Vivamus ipsum nunc,
-                        mattis quis nibh id, pellentesque arcu. Donec a pellentesque Cras erat enim, gravida non ante
-                        vitae,elequis convallis elit, in viverra felis. Donec ultrices tellus vitae iaculisvd porta. Proin
-                        tincidunt
-                        ligula id purus porttitor.
-                    </p>
-
-                </div> -->
                     <div class="details__title">{{ item.design }}</div>
                     <div class="details__text">{{ item.articleN__text }}</div>
 
@@ -39,9 +23,6 @@
 
             </div>
         </div>
-
-
-
         <div class="details__switch">
             <p @click="prevSlide"></p>
             <p></p>
@@ -51,6 +32,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
     name: 'ProjectDetails',
     props: {
@@ -78,6 +60,11 @@ export default {
             }
         },
     },
+    created() {
+        this.fetchArticles;
+    }, computed: {
+        ...mapActions(["fetchArticles"]),
+    }
 }
 </script>
 
