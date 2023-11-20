@@ -10,7 +10,6 @@
                     <router-link class="no_underline" to="/">
                         <div class="logo__text">Interno</div>
                     </router-link>
-
                 </div>
                 <div class="nav">
                     <router-link class="nav1" to="/">Home</router-link>
@@ -19,10 +18,6 @@
                 </div>
             </header>
         </div>
-
-
-
-
     </div>
 </template>
 

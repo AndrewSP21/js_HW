@@ -6,14 +6,7 @@ import RBLOGTop from "../views/RBLOGTop.vue";
 import RProject from "../views/RProject.vue";
 import RProjectDetails from "../views/RProjectDetails.vue";
 import NotFound from "../views/NotFound.vue";
-// import TheNumerator from "./components/Numerator.vue";
-// import LatestPost from "./components/LatestPost.vue";
-// import BlogTop from "./components/BlogTop.vue";
-// import ArticlesNews from "./components/ArticlesNews.vue";
-// import BlogDetails from "./components/BlogDetails.vue";
-// import MainPage from "./components/MainPage.vue";
-// import ProjectSelector from "./components/ProjectSelector.vue";
-// import ProjectDetails from "./components/ProjectDetails.vue";
+
 
 Vue.use(VueRouter)
 
@@ -23,15 +16,7 @@ const routes = [
     name: 'RMainPage',
     component: RMainPage
   },
-  // {
-  //   path: '/RBlog',
-  //   name: 'abRBlogout',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  // },
-  {
+    {
     path: '/RBlog',
     name: 'RBlog',
     component: RBlog
