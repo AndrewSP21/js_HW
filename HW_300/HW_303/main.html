@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="hw3031.js" defer></script>
+    <title>Добавить отзывы о продукте</title>
+</head>
+
+<body>
+    <div class="main">
+        <div>Введите отзыв о продукте</div>
+        <div class="listProduct">
+            <div class="mainProduct">
+                <input class="product" type="text" placeholder="Название продукта">
+            </div>
+            <div class="mainInput">
+                <textarea class="productInput" rows="4" cols="45" name="text" placeholder="Отзыв"></textarea>
+                <button class="inputButton">Добавить</button>
+                <div class="errMsg"></div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .product,
+        .productInput {
+            width: 400px;
+        }
+
+        .errMsg {
+            height: 20px;
+            color: red;
+        }
+    </style>
+</body>
+
+</html>
